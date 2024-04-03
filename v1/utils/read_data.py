@@ -7,7 +7,7 @@ TARGET_COLS = ['dr_primary_girls', 'dr_primary_boys', 'dr_primary_overall',
        'dr_secondary_overall']
 
 def get_df(spreadsheet_id: str, outFile: str) -> pd.DataFrame:
-    getGoogleSeetAsCSV(spreadsheet_id, outFile)
+    # getGoogleSeetAsCSV(spreadsheet_id, outFile)
     filepath = f'{outFile}.csv'
     df = pd.read_csv(filepath, index_col="id")
 

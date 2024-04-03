@@ -6,7 +6,7 @@ from v1.utils.read_data import get_df, TARGET_COLS
 router = APIRouter(prefix="/getData")
 
 
-df = get_df("1e5ENZNsD10pWJ0ZxzLngf1N5eh2CfkoT", "data\\hackathon_data")
+df = get_df("1e5ENZNsD10pWJ0ZxzLngf1N5eh2CfkoT", "data/hackathon_data")
 
 
 @router.get("/byRegion")

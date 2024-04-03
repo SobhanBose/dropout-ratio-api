@@ -6,12 +6,12 @@ from v1.utils.read_data import get_df, TARGET_COLS
 router = APIRouter(prefix="/getData")
 
 
-df = get_df("1e5ENZNsD10pWJ0ZxzLngf1N5eh2CfkoT", "../data/hackathon_data")
+df = get_df("1e5ENZNsD10pWJ0ZxzLngf1N5eh2CfkoT", "..\data\hackathon_data")
 
 
 @router.get("/byRegion")
 def get_data_by_region(region: str) -> dict:
-    return json.loads(df.loc[df["region"]==region.title()].to_json(orient="records"))
+    return df.loc[df["region"]==region].to_dict(orient="records")[0]
 
 
 @router.get("/byCriterion")

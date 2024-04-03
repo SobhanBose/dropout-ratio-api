@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 from v1.utils.download_data import getGoogleSeetAsCSV
 
 TARGET_COLS = ['dr_primary_girls', 'dr_primary_boys', 'dr_primary_overall',
@@ -8,7 +9,8 @@ TARGET_COLS = ['dr_primary_girls', 'dr_primary_boys', 'dr_primary_overall',
 
 def get_df(spreadsheet_id: str, outFile: str) -> pd.DataFrame:
     # getGoogleSeetAsCSV(spreadsheet_id, outFile)
-    filepath = f'{outFile}.csv'
+    filepath = f'{os.getcwd()}\\v1\\{outFile}.csv'
+    print(filepath)
     df = pd.read_csv(filepath, index_col="id")
 
     rename_mapping = {"State/UT": "region",

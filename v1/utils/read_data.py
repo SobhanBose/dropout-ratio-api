@@ -51,9 +51,9 @@ NAME_MAPPING = {"region": "State/UT",
                 }
 
 def get_df(spreadsheet_id: str, outFile: str) -> pd.DataFrame:
-    getGoogleSeetAsCSV(spreadsheet_id, outFile)
-#     filepath = f'{os.getcwd()}/v1/{outFile}.csv'
-    filepath = f'{outFile}.csv'
+#     getGoogleSeetAsCSV(spreadsheet_id, outFile)
+    filepath = f'{os.getcwd()}/v1/{outFile}.csv'
+#     filepath = f'{outFile}.csv'
     print(filepath)
     df = pd.read_csv(filepath, index_col="id")
 

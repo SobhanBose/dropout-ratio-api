@@ -6,8 +6,8 @@ from v1.utils.read_data import get_df, TARGET_COLS, NAME_MAPPING
 router = APIRouter(prefix="/getData")
 
 
-df = get_df("1e5ENZNsD10pWJ0ZxzLngf1N5eh2CfkoT", "data/hackathon_data")
-# df = get_df("1e5ENZNsD10pWJ0ZxzLngf1N5eh2CfkoT", "../data/hackathon_data")
+# df = get_df("1e5ENZNsD10pWJ0ZxzLngf1N5eh2CfkoT", "data/hackathon_data")
+df = get_df("1e5ENZNsD10pWJ0ZxzLngf1N5eh2CfkoT", "../data/hackathon_data")
 
 
 @router.get("/byRegion")
@@ -29,7 +29,7 @@ def get_data_by_criterion_formatted(criterion: str) -> dict:
     data = {}
     for col in TARGET_COLS:
         data["title"] = NAME_MAPPING[criterion]
-        data[col] = {"label": f'{NAME_MAPPING[criterion]} vs {NAME_MAPPING[col]}', "region": df["region"].to_list(), "data": [{"x": x, "y": y} for x, y in zip(df[col].to_list(), df[criterion].to_list())]}
+        data[col] = {"label": f'{NAME_MAPPING[col]} vs {NAME_MAPPING[criterion]}', "region": df["region"].to_list(), "data": [{"x": x, "y": y} for x, y in zip(df[criterion].to_list(), df[col].to_list())]}
     
     return data
     

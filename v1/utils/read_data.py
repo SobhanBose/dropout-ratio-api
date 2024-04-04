@@ -17,6 +17,7 @@ NAME_MAPPING = {"region": "State/UT",
                   "gpi_upper_primary": "Gender Parity Index (upper primary)",
                   "gpi_secondary": "Gender Parity Index (secondary)",
                   "hdi": "Human Development Index",
+                  "unemp_rate": "Unemployment Rate",
                   "life_exp_girls": "Life Expectency (girls)",
                   "life_exp_boys": "Life Expectency (boys)",
                   "num_teachers_primary": "No of teachers (primary)",
@@ -50,9 +51,9 @@ NAME_MAPPING = {"region": "State/UT",
                 }
 
 def get_df(spreadsheet_id: str, outFile: str) -> pd.DataFrame:
-#     getGoogleSeetAsCSV(spreadsheet_id, outFile)
-    filepath = f'{os.getcwd()}/v1/{outFile}.csv'
-#     filepath = f'{outFile}.csv'
+    getGoogleSeetAsCSV(spreadsheet_id, outFile)
+#     filepath = f'{os.getcwd()}/v1/{outFile}.csv'
+    filepath = f'{outFile}.csv'
     print(filepath)
     df = pd.read_csv(filepath, index_col="id")
 
@@ -66,6 +67,7 @@ def get_df(spreadsheet_id: str, outFile: str) -> pd.DataFrame:
                   "Gender Parity Index (upper primary)": "gpi_upper_primary",
                   "Gender Parity Index (secondary)": "gpi_secondary",
                   "Human Development Index": "hdi",
+                  "Unemployment Rate": "unemp_rate",
                   "Life Expectency (girls)": "life_exp_girls",
                   "Life Expectency (boys)": "life_exp_boys",
                   "No of teachers (primary)": "num_teachers_primary",
